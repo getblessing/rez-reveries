@@ -25,6 +25,11 @@ requires = [
     "pyblish_qml",
 ]
 
+variants = [
+    ["default"],
+    ["usd"],  # To be merged
+]
+
 
 private_build_requires = ["rezutil-1"]
 build_command = "python {root}/rezbuild.py {install}"

@@ -22,7 +22,10 @@ def build(source_path, build_path, install_path, targets=None):
     if os.path.isdir(dst):
         shutil.rmtree(dst)
 
-    filename = "%s.zip" % os.environ["REZ_BUILD_PROJECT_VERSION"]
+    if os.environ["REZ_BUILD_VARIANT_INDEX"] != "0":
+        filename = "%s-usd.zip" % os.environ["REZ_BUILD_PROJECT_VERSION"]
+    else:
+        filename = "%s.zip" % os.environ["REZ_BUILD_PROJECT_VERSION"]
 
     # Download the source
     url = "%s/%s" % (url_prefix, filename)
